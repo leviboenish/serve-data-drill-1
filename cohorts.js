@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     "ID": 1,
     "Cohort Name": "17-01-WD-DP",
