@@ -7,7 +7,7 @@ const cohortData = require('./cohorts')
 app.use(cors())
 
 app.get('/', (req, res, next) => {
-  res.json({
+  res.status(200).json({
     cohortData
   })
 })
@@ -25,12 +25,13 @@ const findById = (params, data) => {
 app.get('/:id', (req, res, next) => {
   const cohort = findById(req.params.id, cohortData)
   if (!cohort) {
-
     res.status(404).json({
       error: {
         message: "No ID found!"
       }
     })
+  } else {
+    res.status(200).json({data: cohort})
   }
 })
 
