@@ -25,16 +25,13 @@ const findById = (params, data) => {
 app.get('/:id', (req, res, next) => {
   const cohort = findById(req.params.id, cohortData)
   if (!cohort) {
-    res.status = 404;
-    res.json({
+
+    res.status(404).json({
       error: {
         message: "No ID found!"
       }
     })
   }
-  res.json({
-    cohort
-  })
 })
 
 app.listen(port, () => {
